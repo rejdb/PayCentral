@@ -1,4 +1,4 @@
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 // const HOSTNAME = 'payr.node.js';
 
 const express = require('express');
