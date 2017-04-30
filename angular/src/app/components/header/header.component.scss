@@ -1,0 +1,83 @@
+@import '../../../settings.scss';
+
+.top-nav {
+    width: 100%;
+    background: $dark-gray;
+    padding: 0;
+    margin: 0;
+}
+
+.top-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+
+    li {
+        list-style: none;
+        float: left;
+        padding: 10px 15px;
+        color: #EEEDEE;
+        font-size: 13px;
+    }
+
+    li:first-child {
+        padding-left: 0;
+    }
+
+    li i{
+        padding-right: 8px;
+    }
+}
+
+.top-list-right {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    float: right;
+
+    li {
+        list-style: none;
+        float: left;
+        padding: 10px 15px;
+        color: #EEEDEE;
+        font-size: 13px;
+    }
+
+    a {
+        color: #ffffff;
+    }
+}
+
+.navbar {
+    padding: 0.6rem;
+    background: $secondary;
+
+    .navbar-brand {
+        color: $primary;
+        font-size: 40px;
+        margin-left: 20px;
+
+        span:first-child {
+            color: $secondary;
+            background: $primary;
+            padding: 5px 5px 5px 10px;
+            font-weight: bold;
+            margin-right: 0px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        span:last-child {
+            color: $white;
+            background: lighten($dark-gray,20%);
+            padding: 5px 10px 5px 2px;
+            font-weight: bolder;
+            margin-right: 0px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+    
+}

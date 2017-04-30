@@ -1,0 +1,13 @@
+html, body {
+//   font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased; }
+  @media (max-width: 419px) {
+    html, body {
+      font-size: 12px; }}
+
+body {
+  color: #212121;
+  background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
+  background-size: 220px 220px; 
+}
+
