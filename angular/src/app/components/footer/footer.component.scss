@@ -1,0 +1,13 @@
+@import '../../../settings.scss';
+
+footer {
+  padding: 40px 20px;
+  background: $black;
+  color: $white;
+
+  .menu {
+      list-style: none;
+      color: $white;
+      padding: 0;
+  }
+}

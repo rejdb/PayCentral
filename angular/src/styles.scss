@@ -9,5 +9,11 @@ body {
   color: #212121;
   background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
   background-size: 220px 220px; 
+
+  #theme-wrapper {
+    box-shadow: 0 0 53px 0 rgba(0, 0, 0, 0.55);
+    max-width: 1920px; 
+    width: 100%;
+  }
 }
 
