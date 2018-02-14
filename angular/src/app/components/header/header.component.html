@@ -10,9 +10,12 @@
     </div>
     <div class="col-lg-6 col-md-6 col-xs-12">
       <ul class="top-list-right">
-        <li><a href="#">Client Login</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Support</a></li>
+        <li *ngIf="!_authService.loggedIn()"><a [routerLink]="['/login']">Client Login</a></li>
+        <li *ngIf="_authService.loggedIn()"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+        <!-- <li><a [routerLink]="['/profile']">Profile</a></li> -->
+        <li><a [routerLink]="['/aboutus']">About Us</a></li>
+        <li><a [routerLink]="['/support']">Support</a></li>
+        <li *ngIf="_authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -22,6 +25,6 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#"><h3><span><i>Pay</i></span><span>PH</span></h3></a>
+  <a class="navbar-brand" [routerLink]="['/']"><h3><span><i>Pay</i></span><span>PH</span></h3></a>
 </nav>
 

@@ -1,10 +1,12 @@
 const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 3000;
 // const HOSTNAME = 'payr.node.js';
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const morgan = require('morgan');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
@@ -19,6 +21,9 @@ const app = express();
 
 // NPM Cors
 app.use(cors());
+
+//Logged server activity to console
+app.use(morgan('dev'));
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,7 +44,9 @@ require('./config/passport')(passport);
 
 // Routes
 const userRoutes = require('./routes/usersRoute');
+const coinsPhRoutes = require('./routes/coinsRoute');
 app.use('/api/users', userRoutes);
+app.use('/api/coins', coinsPhRoutes);
 
 app.use('/', (req, rsp) => {
     rsp.send('Invalid Endpoint');

@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-lg-offset-1 col-md-offset-1">
         <div class="tagging">
-          <h1>Financial Services for All</h1>
+          <h1>Financial Services for Every Juan!</h1>
           <h2>Manage Payments in One Place</h2>
-          <div class="button">
-            <a href="" class="btn btn-primary btn-animated">GET STARTED</a>
+          <div class="button" *ngIf="!_authService.loggedIn()">
+            <a [routerLink]="['/register']" class="btn btn-primary btn-animated">GET STARTED</a>
           </div>
         </div>
       </div>

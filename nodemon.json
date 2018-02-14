@@ -1,0 +1,21 @@
+{
+    "env": {
+        "base_url": "http://localhost:3001",
+        "coinsapi": "7fyIgBG7SPFNN5093XJMMQfWxQ3xk9RSJWIBo7nd",
+        "secret_key": "w2kqzpbVWAXdZiL4F81pC2UGiqa08bEINYKEk4Jss8znZz2uXq",
+        "mongodb_pwd": "Caitsh3lt3r",
+        "database": "PayJuanExpress",
+
+        "account_url": "https://coins.ph/api/v3/crypto-accounts/?currency=PBTC",
+        "mobile_network_url": "https://coins.ph/d/api/payout-outlets/?region=PH&outlet_category=mobile-load",
+        "gaming_pins_url": "https://coins.ph/d/api/payout-outlets/?region=PH&per_page=100&outlet_category=gaming_pins",
+        "bills_payment_category": "https://coins.ph/d/api/payout-outlet-categories/?region=PH&per_page=100&ui_view=bills_payment_web",
+        "bills_payment_category_id": "https://coins.ph/d/api/payout-outlets/?region=PH&per_page=100&ui_view=bills_payment_web&outlet_category=",
+        "cash_out_categories": "https://coins.ph/d/api/payout-outlet-categories/?language=en&per_page=100&region=PH&ui_view=sell_order_web",
+        "cash_out_featured": "https://coins.ph/d/api/payout-outlets/?featured=1&language=en&region=PH",
+        "cash_out_outlet": "https://coins.ph/d/api/payout-outlets/?language=en&per_page=100&region=PH&ui_view=sell_order_web&outlet_category=",
+        "cash_in_categories": "https://coins.ph/d/api/payin-outlet-categories/?per_page=100&region=PH&ui_view=buy_order",
+        "cash_in_featured": "https://coins.ph/d/api/payin-outlets/?featured=1&language=en&per_page=100&region=PH",
+        "cash_in_outlet": "https://coins.ph/d/api/payin-outlets/?per_page=100&region=PH&ui_view=buy_order&outlet_category="
+    }
+}
