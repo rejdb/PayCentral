@@ -19,6 +19,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutsComponent } from './components/abouts/abouts.component';
 import { SupportComponent } from './components/support/support.component';
+import { CashinComponent } from './components/cashin/cashin.component';
+import { BuyloadComponent } from './components/buyload/buyload.component';
+import { PaybillsComponent } from './components/paybills/paybills.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const appRoutes: Routes = [
   { path:'', component: HomeComponent },
@@ -27,6 +31,10 @@ const appRoutes: Routes = [
   { path:'aboutus', component: AboutsComponent },
   { path:'support', component: SupportComponent },
   { path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path:'cashin', component: CashinComponent, canActivate: [AuthGuard] },
+  { path:'buyload', component: BuyloadComponent, canActivate: [AuthGuard] },
+  { path:'paybills', component: PaybillsComponent, canActivate: [AuthGuard] },
+  { path:'myaccounts', component: ProfileComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -39,7 +47,11 @@ const appRoutes: Routes = [
     FooterComponent,
     DashboardComponent,
     AboutsComponent,
-    SupportComponent
+    SupportComponent,
+    CashinComponent,
+    BuyloadComponent,
+    PaybillsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

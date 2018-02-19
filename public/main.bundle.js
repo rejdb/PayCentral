@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"theme-wrapper\" class=\"container-fluid\">\n  <ph-header></ph-header>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \n  <!-- <ph-home></ph-home> -->\n  <flash-messages></flash-messages>\n  <router-outlet></router-outlet>\n  <ph-footer></ph-footer>\n</div>"
+module.exports = "\n  <ph-header></ph-header>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \n  <!-- <ph-home></ph-home> -->\n  <!-- <flash-messages></flash-messages> -->\n  <router-outlet></router-outlet>\n  <ph-footer></ph-footer>"
 
 /***/ }),
 
@@ -98,12 +98,20 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_abouts_abouts_component__ = __webpack_require__("../../../../../src/app/components/abouts/abouts.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_support_support_component__ = __webpack_require__("../../../../../src/app/components/support/support.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_cashin_cashin_component__ = __webpack_require__("../../../../../src/app/components/cashin/cashin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_buyload_buyload_component__ = __webpack_require__("../../../../../src/app/components/buyload/buyload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_paybills_paybills_component__ = __webpack_require__("../../../../../src/app/components/paybills/paybills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_profile_profile_component__ = __webpack_require__("../../../../../src/app/components/profile/profile.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -130,6 +138,10 @@ var appRoutes = [
     { path: 'aboutus', component: __WEBPACK_IMPORTED_MODULE_17__components_abouts_abouts_component__["a" /* AboutsComponent */] },
     { path: 'support', component: __WEBPACK_IMPORTED_MODULE_18__components_support_support_component__["a" /* SupportComponent */] },
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_16__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__guard_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'cashin', component: __WEBPACK_IMPORTED_MODULE_19__components_cashin_cashin_component__["a" /* CashinComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__guard_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'buyload', component: __WEBPACK_IMPORTED_MODULE_20__components_buyload_buyload_component__["a" /* BuyloadComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__guard_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'paybills', component: __WEBPACK_IMPORTED_MODULE_21__components_paybills_paybills_component__["a" /* PaybillsComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__guard_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'myaccounts', component: __WEBPACK_IMPORTED_MODULE_22__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__guard_auth_guard__["a" /* AuthGuard */]] },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -145,7 +157,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__components_abouts_abouts_component__["a" /* AboutsComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_support_support_component__["a" /* SupportComponent */]
+                __WEBPACK_IMPORTED_MODULE_18__components_support_support_component__["a" /* SupportComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_cashin_cashin_component__["a" /* CashinComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_buyload_buyload_component__["a" /* BuyloadComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_paybills_paybills_component__["a" /* PaybillsComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__components_profile_profile_component__["a" /* ProfileComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -227,10 +243,132 @@ var AboutsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/buyload/buyload.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  buyload works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/buyload/buyload.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/buyload/buyload.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuyloadComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BuyloadComponent = /** @class */ (function () {
+    function BuyloadComponent() {
+    }
+    BuyloadComponent.prototype.ngOnInit = function () {
+    };
+    BuyloadComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'ph-buyload',
+            template: __webpack_require__("../../../../../src/app/components/buyload/buyload.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/buyload/buyload.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], BuyloadComponent);
+    return BuyloadComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/cashin/cashin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  cashin works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/cashin/cashin.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/cashin/cashin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CashinComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CashinComponent = /** @class */ (function () {
+    function CashinComponent() {
+    }
+    CashinComponent.prototype.ngOnInit = function () {
+    };
+    CashinComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'ph-cashin',
+            template: __webpack_require__("../../../../../src/app/components/cashin/cashin.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/cashin/cashin.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CashinComponent);
+    return CashinComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user\">\n  <h2 class=\"page-header\">{{user.fullname.first}} {{user.fullname.last}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Username: {{user.username}}</li>\n    <li class=\"list-group-item\">Email: {{user.email}}</li>\n    <li class=\"list-group-item\">Account Balance: {{user.balance}}</li>\n  </ul>\n</div>"
+module.exports = "<div class=\"container\">\n  <div *ngIf=\"user\">\n    <h2 class=\"page-header\">{{user.fullname.first}} {{user.fullname.last}}</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\">Username: {{user.username}}</li>\n      <li class=\"list-group-item\">Email: {{user.email}}</li>\n      <li class=\"list-group-item\">Account Balance: {{user.balance}}</li>\n    </ul>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -302,7 +440,7 @@ var DashboardComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\r\n  <div class=\"row\">\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <span><h4><i>Pay</i>.PH</h4> &copy; copyright 2017</span>\r\n      <p>Financial Services for All<br/>Manage Payments in One Place</p>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <h5>Company</h5>\r\n      <ul class=\"menu vertical\">\r\n        <li><a href=\"#\">About Us</a></li>\r\n        <li><a href=\"#\">Contact Us</a></li>\r\n        <li><a href=\"#\">Privacy Policy</a></li>\r\n        <li><a href=\"#\">Site Map</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <h5>Support</h5>\r\n      <ul class=\"menu vertical\">\r\n        <li><a href=\"#\">Knowledgebase</a></li>\r\n        <li><a href=\"#\">Support Forum</a></li>\r\n        <li><a href=\"#\">Documentation</a></li>\r\n        <li><a href=\"#\">Ticket System</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <img src=\"../../../assets/img/truste-seal.png\">\r\n    </div>\r\n  </div>\r\n</footer>"
+module.exports = "<footer>\r\n  <div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <span><h4><i>Pay</i>.PH</h4> &copy; copyright 2017</span>\r\n      <p>Financial Services for All<br/>Manage Payments in One Place</p>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <h5>Company</h5>\r\n      <ul class=\"menu vertical\">\r\n        <li><a href=\"#\">About Us</a></li>\r\n        <li><a href=\"#\">Contact Us</a></li>\r\n        <li><a href=\"#\">Privacy Policy</a></li>\r\n        <li><a href=\"#\">Site Map</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <h5>Support</h5>\r\n      <ul class=\"menu vertical\">\r\n        <li><a href=\"#\">Knowledgebase</a></li>\r\n        <li><a href=\"#\">Support Forum</a></li>\r\n        <li><a href=\"#\">Documentation</a></li>\r\n        <li><a href=\"#\">Ticket System</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-3 col-lg-3 col-md-3\">\r\n      <img src=\"../../../assets/img/truste-seal.png\">\r\n    </div>\r\n  </div>\r\n</div>\r\n</footer>"
 
 /***/ }),
 
@@ -314,7 +452,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "footer {\n  padding: 40px 20px;\n  background: #000000;\n  color: #ffffff;\n  margin-top: 20px; }\n  footer .menu {\n    list-style: none;\n    color: #ffffff;\n    padding: 0; }\n", ""]);
+exports.push([module.i, "footer {\n  padding: 40px 20px;\n  background: #000000;\n  color: #ffffff; }\n  footer .menu {\n    list-style: none;\n    color: #ffffff;\n    padding: 0; }\n", ""]);
 
 // exports
 
@@ -363,7 +501,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"top-nav hidden-sm-down\">\r\n  <div class=\"row\">\r\n    <div class=\"col-lg-6 col-md-6 col-sm-12\">\r\n      <ul class=\"top-list\">\r\n        <li><i class=\"fa fa-map-marker\"></i> SBFZ, Olongapo, Philippines</li>\r\n        <li><i class=\"fa fa-phone\"></i> (+63) 915 280 8814</li>\r\n        <li><i class=\"fa fa-envelope-o\"></i> <a href=\"\">rejdabu@gmail.com</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-lg-6 col-md-6 col-xs-12\">\r\n      <ul class=\"top-list-right\">\r\n        <li *ngIf=\"!_authService.loggedIn()\"><a [routerLink]=\"['/login']\">Client Login</a></li>\r\n        <li *ngIf=\"_authService.loggedIn()\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\r\n        <!-- <li><a [routerLink]=\"['/profile']\">Profile</a></li> -->\r\n        <li><a [routerLink]=\"['/aboutus']\">About Us</a></li>\r\n        <li><a [routerLink]=\"['/support']\">Support</a></li>\r\n        <li *ngIf=\"_authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<nav class=\"navbar navbar-toggleable-md navbar-inverse\">\r\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  <a class=\"navbar-brand\" [routerLink]=\"['/']\"><h3><span><i>Pay</i></span><span>PH</span></h3></a>\r\n</nav>\r\n\r\n"
+module.exports = "\r\n<!-- <div class=\"top-nav hidden-sm-down\">\r\n  <div class=\"row\">\r\n    <div class=\"col-lg-6 col-md-6 col-sm-12\">\r\n      <ul class=\"top-list\">\r\n        <li><i class=\"fa fa-map-marker\"></i> SBFZ, Olongapo, Philippines</li>\r\n        <li><i class=\"fa fa-phone\"></i> (+63) 915 280 8814</li>\r\n        <li><i class=\"fa fa-envelope-o\"></i> <a href=\"\">rejdabu@gmail.com</a></li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-lg-6 col-md-6 col-xs-12\">\r\n      <ul class=\"top-list-right\">\r\n        <li *ngIf=\"!_authService.loggedIn()\"><a [routerLink]=\"['/login']\">Client Login</a></li>\r\n        <li *ngIf=\"_authService.loggedIn()\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li> -->\r\n        <!-- <li><a [routerLink]=\"['/profile']\">Profile</a></li> -->\r\n        <!-- <li><a [routerLink]=\"['/aboutus']\">About Us</a></li>\r\n        <li><a [routerLink]=\"['/support']\">Support</a></li>\r\n        <li *ngIf=\"_authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<nav class=\"navbar navbar-toggleable-md navbar-inverse\">\r\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n  <a class=\"navbar-brand\" [routerLink]=\"['/']\"><h3><span><i>Pay</i></span><span>PH</span></h3></a>\r\n</nav> -->\r\n\r\n<!--=== Header v1 ===-->\r\n<header>\r\n  <!-- Topbar -->\r\n  <div class=\"topbar\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\">\r\n          <ul class=\"list-inline top-v1-contacts\">\r\n            <li>\r\n              <i class=\"fa fa-envelope\"></i> Email: <a href=\"mailto:rejdabu@gamil.com\">rejdabu@gmail.com</a>\r\n            </li>\r\n            <li>\r\n              <i class=\"fa fa-phone\"></i> Mobile: (+63) 915 280 8814\r\n            </li>\r\n          </ul>\r\n        </div>\r\n\r\n        <div class=\"col-md-6\">\r\n          <ul class=\"list-inline top-v1-data\">\r\n            <li><a [routerLink]=\"['/']\"><i class=\"fa fa-home\"></i></a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\r\n            <li><a href=\"#\"><i class=\"fa fa-cog\"></i></a></li>\r\n            <li *ngIf=\"_authService.loggedIn()\"><a [routerLink]=\"['/myaccounts']\">My Account</a></li>\r\n            <li *ngIf=\"_authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n            <li *ngIf=\"!_authService.loggedIn()\"><a [routerLink]=\"['/login']\">Login</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- End Topbar -->\r\n  \r\n  <!-- Navbar -->\r\n  <nav class=\"navbar navbar-inverse navbar-expand-md sticky-top nb-default\">\r\n    <div class=\"container\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggler nb-toggle navbar-toggler-right\" data-toggle=\"collapse\" data-target=\"#navbar-target\">\r\n          <!-- <span class=\"sr-only\">Toggle navigation</span> -->\r\n          <span class=\"navbar-toggler-icon\"><i class=\"fa fa-bars\"></i></span>\r\n        </button>\r\n        <a class=\"navbar-brand\">\r\n          <img id=\"logo-header\" src=\"../../../assets/img/logo1-default.png\" alt=\"Logo\">\r\n        </a>\r\n      </div>\r\n\r\n      <!-- Collect the nav links, forms, and other content for toggling -->\r\n      <div class=\"collapse navbar-collapse\" id=\"navbar-target\">\r\n        <ul class=\"navbar-nav\">\r\n          <li *ngIf=\"!_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/']\" class=\"nav-link\">Home</a></li>\r\n          <li *ngIf=\"!_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/aboutus']\" class=\"nav-link\">About Us</a></li>\r\n          <li *ngIf=\"!_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/support']\" class=\"nav-link\">Support</a></li>\r\n          <li *ngIf=\"!_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/']\" class=\"nav-link\">Promos</a></li>\r\n          <li *ngIf=\"_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/dashboard']\" class=\"nav-link\">Dashboard</a></li>\r\n          <li *ngIf=\"_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/cashin']\" class=\"nav-link\">Cash In</a></li>\r\n          <li *ngIf=\"_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/buyload']\" class=\"nav-link\">Buy Load</a></li>\r\n          <li *ngIf=\"_authService.loggedIn()\" class=\"nav-item\"><a [routerLink]=\"['/paybills']\" class=\"nav-link\">Pay Bills</a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>  \r\n  <!-- End Navbar -->\r\n</header>\r\n<!--=== End Header v1 ===-->\r\n\r\n"
 
 /***/ }),
 
@@ -375,7 +513,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".top-nav {\n  background: #3d3f40;\n  padding: 0;\n  margin: 0;\n  max-width: 1920px;\n  width: 100%; }\n\n.top-list {\n  padding: 0;\n  margin: 0;\n  list-style: none;\n  overflow: hidden; }\n\n.top-list li {\n    list-style: none;\n    float: left;\n    padding: 10px 15px;\n    color: #EEEDEE;\n    font-size: 13px; }\n\n.top-list li:first-child {\n    padding-left: 20px; }\n\n.top-list li i {\n    padding-right: 5px; }\n\n.top-list-right {\n  padding: 0;\n  margin: 0;\n  list-style: none;\n  overflow: hidden;\n  float: right; }\n\n.top-list-right li {\n    list-style: none;\n    float: left;\n    padding: 10px 15px;\n    color: #EEEDEE;\n    font-size: 13px; }\n\n.top-list-right a {\n    color: #ffffff; }\n\n.navbar {\n  padding: 0.6rem;\n  background: #9bc33f; }\n\n.navbar .navbar-brand {\n    color: #494B9C;\n    font-size: 40px;\n    margin-left: 20px;\n    float: left; }\n\n.navbar .navbar-brand span:first-child {\n      color: #9bc33f;\n      background: #494B9C;\n      padding: 5px 5px 5px 10px;\n      font-weight: bold;\n      margin-right: 0px;\n      border-top-left-radius: 5px;\n      border-bottom-left-radius: 5px; }\n\n.navbar .navbar-brand span:last-child {\n      color: #ffffff;\n      background: #6f7274;\n      padding: 5px 10px 5px 2px;\n      font-weight: bolder;\n      margin-right: 0px;\n      border-top-right-radius: 5px;\n      border-bottom-right-radius: 5px; }\n", ""]);
+exports.push([module.i, "header {\n  z-index: 99;\n  position: relative; }\n  header .topbar {\n    background: #fdfdfd;\n    border-top: solid 1px #f0f0f0;\n    border-bottom: solid 1px #f0f0f0; }\n  header .topbar ul {\n      margin: 0; }\n  header .topbar .top-v1-contacts li {\n      color: #666;\n      padding: 5px 0;\n      font-size: 12px;\n      margin-right: 15px;\n      display: inline-block; }\n  header .topbar .top-v1-contacts i {\n      color: #999;\n      font-size: 13px;\n      margin-right: 3px; }\n  header .topbar .top-v1-data {\n      text-align: right; }\n  header .topbar .top-v1-data li {\n        padding: 5px 11px;\n        margin-left: -4px;\n        display: inline-block;\n        border-right: solid 1px #eee; }\n  header .topbar .top-v1-data li a {\n          font-size: 12px; }\n  header .topbar .top-v1-data li a:hover {\n          text-decoration: none; }\n  header .topbar .top-v1-data li i {\n          color: #777;\n          font-size: 13px; }\n  header .topbar .top-v1-data li a:hover i {\n          color: #72c02c; }\n  header .topbar .top-v1-data li:first-child {\n        margin-left: 0;\n        border-left: solid 1px #eee; }\n  header .navbar {\n    margin: 0; }\n  header .navbar .navbar-header {\n      margin: 10px 0; }\n  header .navbar .navbar-brand {\n      z-index: 1;\n      position: relative; }\n  header .nb-default {\n    border: none;\n    background: none; }\n  header .nb-default .navbar-collapse {\n      position: relative; }\n  header .nb-default .nb-toggle {\n      border-color: #5fb611;\n      background: #72c02c;\n      padding: 0px; }\n  header .nb-default .nb-toggle .fa {\n        color: #fff;\n        font-size: 19px;\n        padding-top: 5px; }\n  header .nb-default .nb-toggle:hover,\n    header .nb-default .nb-toggle:focus {\n      background: #72c02c; }\n  header .nb-default .nb-toggle:hover {\n      background: #5fb611 !important; }\n  header .nb-default .navbar-nav {\n      position: relative; }\n  header .nb-default .navbar-nav li > a {\n        color: #687074;\n        font-size: 15px;\n        font-weight: 400;\n        text-transform: uppercase; }\n  header .nb-default .navbar-nav li:hover > a {\n        color: #72c02c; }\n  /*Responsive Topbar v1*/\n  @media (max-width: 991px) {\n  header .topbar ul {\n    text-align: center !important; }\n  header .topbar .top-v1-contacts {\n    margin: 10px 0; }\n  header .topbar .top-v1-data li {\n    top: 1px;\n    padding: 6px 16px;\n    margin-left: -5px;\n    position: relative;\n    border: solid 1px #eee; }\n  header {\n    border-bottom: solid 1px #eee;\n    /*Responsive code for max-width: 991px*/\n    /*Design for max-width: 991px*/ }\n    header .navbar-brand {\n      margin-top: -10px; }\n    header .navbar-header {\n      float: none; }\n    header .nb-toggle {\n      float: right;\n      right: 0; }\n    header .navbar-collapse {\n      padding-left: 0 !important;\n      padding-right: 0 !important; }\n    header .navbar-nav {\n      margin: 0 0 5px;\n      float: none !important; }\n      header .navbar-nav li {\n        float: none; }\n        header .navbar-nav li a {\n          font-size: 14px;\n          padding: 9px 10px;\n          border-bottom: solid 1px #eee; }\n        header .navbar-nav li a:hover {\n          color: #72c02c; }\n        header .navbar-nav li a:focus {\n          background: none; }\n      header .navbar-nav .active > a, header .navbar-nav .active > a:hover, header .navbar-nav .active > a:focus {\n        background: #72c02c;\n        color: #fff !important; } }\n  @media (min-width: 992px) {\n  header .navbar-collapse {\n    padding: 20px 0 0; }\n  header .navbar-brand {\n    margin-top: -4px; }\n  header .navbar {\n    min-height: 40px !important;\n    border-bottom: solid 1px #eee; }\n  header .container > .navbar-header, header .container > .navbar-collapse {\n    margin-bottom: -10px; }\n  header .navbar-header {\n    width: 60% !important; }\n  header .nb-default .navbar-nav {\n    top: 2px;\n    position: relative;\n    float: right;\n    margin-top: -6px; }\n    header .nb-default .navbar-nav li {\n      margin-left: 1px;\n      text-align: center; }\n      header .nb-default .navbar-nav li a {\n        bottom: -2px;\n        position: relative;\n        padding: 15px 30px 17px 20px; }\n      header .nb-default .navbar-nav li a, header .nb-default .navbar-nav li a:hover, header .nb-default .navbar-nav li a:focus {\n        background: none; }\n    header .nb-default .navbar-nav .active > a, header .nb-default .navbar-nav li > a:hover, header .nb-default .navbar-nav li > a:focus {\n      color: #72c02c;\n      bottom: -2px;\n      position: relative; }\n    header .nb-default .navbar-nav li:hover > a {\n      color: #72c02c; } }\n  @media (max-width: 768px) {\n  header .navbar-brand {\n    padding-left: 0; }\n  header .nb-default .nb-toggle {\n    margin-right: 0;\n    float: right; }\n  .navbar-header {\n    float: none;\n    width: 100%; } }\n", ""]);
 
 // exports
 
@@ -411,7 +549,7 @@ var HeaderComponent = /** @class */ (function () {
         this._router = _router;
     }
     HeaderComponent.prototype.ngOnInit = function () {
-        console.log(this._authService.loggedIn());
+        console.log(window.innerWidth);
     };
     HeaderComponent.prototype.onLogoutClick = function () {
         this._authService.logout();
@@ -501,7 +639,7 @@ var HomeComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form-signin\" (submit)=\"onLoginSubmit()\">\n  <h2 class=\"form-signin-heading\">Please sign in</h2>\n  <flash-messages></flash-messages>\n  <div class=\"form-group\">\n    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" id=\"username\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" id=\"password\" class=\"form-control\" placeholder=\"Password\" required>\n  </div>\n    <div class=\"checkbox\">\n    <label>\n      <input type=\"checkbox\" value=\"remember-me\"> Remember me\n    </label>\n  </div>\n  <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>\n</form>"
+module.exports = "<!-- <form class=\"form-signin\">\n  <h2 class=\"form-signin-heading\">Please sign in</h2>\n  <flash-messages></flash-messages>\n  <div class=\"form-group\">\n    <label for=\"inputEmail\" class=\"sr-only\">Email address</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" id=\"username\" class=\"form-control\" placeholder=\"Email address\" required autofocus>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" id=\"password\" class=\"form-control\" placeholder=\"Password\" required>\n  </div>\n    <div class=\"checkbox\">\n    <label>\n      <input type=\"checkbox\" value=\"remember-me\"> Remember me\n    </label>\n  </div>\n  <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>\n</form> -->\n\n<!-- Login -->\n<section class=\"container\">\n  <div class=\"row justify-content-between\">\n    <div class=\"col-md-6 col-lg-5 order-lg-2 g-mb-80\">\n      <div class=\"g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4\">\n        <header class=\"text-center mb-4\">\n          <h1 class=\"h4 g-color-black g-font-weight-400\">Login to Your Account</h1>\n        </header>\n        <flash-messages></flash-messages>\n        <!-- Form -->\n        <form (submit)=\"onLoginSubmit()\">\n          <div class=\"mb-3\">\n            <div class=\"input-group g-rounded-left-3\">\n              <div class=\"input-group-prepend\"> \n                <span class=\"input-group-text\"><i class=\"fa fa-user\"></i></span>\n              </div>\n              <input class=\"form-control\" type=\"text\" [(ngModel)]=\"username\" name=\"username\" id=\"username\" placeholder=\"Email Adress\">\n            </div>\n          </div>\n\n          <div class=\"mb-2\">\n            <div class=\"input-group g-rounded-left-3\">\n              <div class=\"input-group-prepend\">\n                <span class=\"input-group-text\">\n                  <i class=\"fa fa-key\"></i>\n                </span>\n              </div>\n              <input class=\"form-control\" type=\"password\" [(ngModel)]=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\">\n            </div>\n          </div>\n\n          <div class=\"row justify-content-between mb-3\">\n            <div class=\"col align-self-center text-right\">\n              <a class=\"g-font-size-13\" href=\"#\">Forgot password?</a>\n            </div>\n          </div>\n\n          <div class=\"mb-4\">\n            <button class=\"btn btn-block u-btn-primary text-uppercase\" type=\"submit\">Login</button>\n          </div>\n\n          <div class=\"d-flex justify-content-center text-center\">\n            <div class=\"d-inline-block align-self-center\"></div>\n            <span class=\"align-self-center g-color-gray-dark-v5 mx-4 mb-4\">---- OR ----</span>\n            <div class=\"d-inline-block align-self-center\"></div>\n          </div>\n\n          <div class=\"row no-gutters\">\n            <div class=\"col-6\">\n              <button class=\"btn btn-block u-btn-facebook text-uppercase mr-2\" type=\"button\">\n                <i class=\"mr-1 fa fa-facebook\"></i>\n                Facebook\n              </button>\n            </div>\n            <div class=\"col-6\">\n              <button class=\"btn btn-block u-btn-twitter g-font-size-12 text-uppercase g-py-12 g-px-25 ml-2\" type=\"button\">\n                <i class=\"mr-1 fa fa-twitter\"></i>\n                Twitter\n              </button>\n            </div>\n          </div>\n        </form>\n        <!-- End Form -->\n      </div>\n\n      <div class=\"text-center\">\n        <p class=\"g-color-gray-dark-v5 mb-0\">Don't have an account?\n          <a class=\"g-font-weight-600\" [routerLink]='[\"/register\"]'>signup</a></p>\n      </div>\n    </div>\n\n    <div class=\"col-md-6 order-lg-1 g-mb-80\">\n      <div class=\"mb-5\">\n        <h2 class=\"h1 g-font-weight-400 mb-3\">Welcome to Unipay</h2>\n        <p class=\"g-color-gray-dark-v4\">The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.</p>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-lg-9\">\n          <!-- Icon Blocks -->\n          <div class=\"media mb-5\">\n            <div class=\"d-flex mr-3\">\n              <span class=\"align-self-center u-icon-v1 u-icon-size--lg g-color-primary\">\n                <i class=\"icon-finance-168 u-line-icon-pro\"></i>\n              </span>\n            </div>\n            <div class=\"media-body align-self-center\">\n              <h3 class=\"h5 g-font-weight-400\">Reliable contracts</h3>\n              <p class=\"g-color-gray-dark-v5 mb-0\">Reliable contracts, multifanctionality &amp; best usage of Unify template</p>\n            </div>\n          </div>\n          <!-- End Icon Blocks -->\n\n          <!-- Icon Blocks -->\n          <div class=\"media mb-5\">\n            <div class=\"d-flex mr-3\">\n              <span class=\"align-self-center u-icon-v1 u-icon-size--lg g-color-primary\">\n                <i class=\"icon-finance-193 u-line-icon-pro\"></i>\n              </span>\n            </div>\n            <div class=\"media-body align-self-center\">\n              <h3 class=\"h5 g-font-weight-400\">Security</h3>\n              <p class=\"g-color-gray-dark-v5 mb-0\">Secure &amp; integrated options to create individual &amp; business websites</p>\n            </div>\n          </div>\n          <!-- End Icon Blocks -->\n\n          <!-- Icon Blocks -->\n          <div class=\"media\">\n            <div class=\"d-flex mr-3\">\n              <span class=\"align-self-center u-icon-v1 u-icon-size--lg g-color-primary\">\n                <i class=\"icon-finance-122 u-line-icon-pro\"></i>\n              </span>\n            </div>\n            <div class=\"media-body align-self-center\">\n              <h3 class=\"h5 g-font-weight-400\">Maintain</h3>\n              <p class=\"g-color-gray-dark-v5 mb-0\">We get it, you're busy and it's important that someone keeps up with marketing</p>\n            </div>\n          </div>\n          <!-- End Icon Blocks -->\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n<!-- End Login -->\n\n"
 
 /***/ }),
 
@@ -513,7 +651,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".form-signin {\n  max-width: 330px;\n  padding: 15px;\n  margin: 0 auto; }\n\n.form-signin .form-signin-heading,\n.form-signin .checkbox {\n  margin-bottom: 10px; }\n\n.form-signin .checkbox {\n  font-weight: 400; }\n\n.form-signin .form-control {\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  height: auto;\n  padding: 10px;\n  font-size: 16px; }\n\n.form-signin .form-control:focus {\n  z-index: 2; }\n\n.form-signin input[type=\"email\"] {\n  margin-bottom: -1px;\n  border-bottom-right-radius: 0;\n  border-bottom-left-radius: 0; }\n\n.form-signin input[type=\"password\"] {\n  margin-bottom: 10px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0; }\n", ""]);
+exports.push([module.i, "section {\n  padding: 3.14286rem 1.14286rem !important;\n  background-color: #fff !important; }\n  section .g-brd-around {\n    border: solid 1px transparent !important; }\n  section .g-brd-gray-light-v3 {\n    border-color: #ddd !important; }\n  section .g-mb-80 {\n    margin-bottom: 1.71429rem !important; }\n  section .g-px-30 {\n    padding-left: 2.14286rem !important;\n    padding-right: 2.14286rem !important; }\n  section .g-py-50 {\n    padding-top: 3.57143rem !important;\n    padding-bottom: 3.57143rem !important; }\n  section header h1 {\n    font-weight: 400 !important; }\n  section form {\n    padding-top: 1.07143rem !important;\n    padding-bottom: 1.07143rem !important;\n    /* Button Facebook */\n    /* Button Twitter */ }\n  section form .g-rounded-left-3 {\n      border-top-left-radius: 3px !important;\n      border-bottom-left-radius: 3px !important; }\n  section form .g-rounded-left-3 span {\n        width: 45px !important;\n        background-color: #fff;\n        border-color: #ddd !important;\n        color: #999 !important; }\n  section form .g-rounded-left-3 span i {\n          margin: 0 auto; }\n  section form .g-rounded-left-3 input {\n        color: #000 !important;\n        background-color: #fff;\n        border-color: #ddd !important;\n        border-top-left-radius: 0 !important;\n        border-bottom-left-radius: 0 !important;\n        border-top-right-radius: 5px !important;\n        border-bottom-right-radius: 5px !important;\n        padding: 0.77143rem !important; }\n  section form .g-rounded-left-3 .g-font-size-13 {\n        font-size: 0.92857rem !important; }\n  section form .g-rounded-left-3 .g-color-gray-dark-v5 {\n        color: #999 !important; }\n  section form .d-inline-block {\n      width: 50px !important;\n      height: 100%;\n      background-color: #bbb !important; }\n  section form .u-btn-primary {\n      color: #fff !important;\n      background-color: #3bb18f !important;\n      font-size: 0.85714rem !important;\n      padding-top: 0.85714rem !important;\n      padding-bottom: 0.85714rem !important;\n      padding-left: 1.78571rem !important;\n      padding-right: 1.78571rem !important; }\n  section form .u-btn-primary:hover, section form .u-btn-primary.active {\n      border-color: #58c7a7;\n      background-color: #58c7a7; }\n  section form .u-btn-facebook {\n      color: #fff;\n      background-color: #3b5998; }\n  section form .u-btn-facebook:hover, section form .u-btn-facebook.active {\n      border-color: #4c70ba;\n      background-color: #4c70ba; }\n  section form .u-btn-facebook:hover, section form .u-btn-facebook:focus, section form .u-btn-facebook.active {\n      color: #fff; }\n  section form .u-btn-facebook.g-btn-hover-reset:hover, section form .u-btn-facebook.g-btn-hover-reset.active {\n      background-color: #3b5998;\n      border-color: #3b5998; }\n  section form .u-btn-twitter {\n      color: #fff;\n      background-color: #00acee; }\n  section form .u-btn-twitter:hover, section form .u-btn-twitter.active {\n      border-color: #22c2ff;\n      background-color: #22c2ff; }\n  section form .u-btn-twitter:hover, section form .u-btn-twitter:focus, section form .u-btn-twitter.active {\n      color: #fff; }\n  section form .u-btn-twitter.g-btn-hover-reset:hover, section form .u-btn-twitter.g-btn-hover-reset.active {\n      background-color: #00acee;\n      border-color: #00acee; }\n  section form .g-color-gray-dark-v5 {\n      color: #999 !important; }\n", ""]);
 
 // exports
 
@@ -587,6 +725,128 @@ var LoginComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/paybills/paybills.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  paybills works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/paybills/paybills.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/paybills/paybills.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaybillsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PaybillsComponent = /** @class */ (function () {
+    function PaybillsComponent() {
+    }
+    PaybillsComponent.prototype.ngOnInit = function () {
+    };
+    PaybillsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'ph-paybills',
+            template: __webpack_require__("../../../../../src/app/components/paybills/paybills.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/paybills/paybills.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PaybillsComponent);
+    return PaybillsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/profile/profile.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  profile works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/profile/profile.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/profile/profile.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProfileComponent = /** @class */ (function () {
+    function ProfileComponent() {
+    }
+    ProfileComponent.prototype.ngOnInit = function () {
+    };
+    ProfileComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'ph-profile',
+            template: __webpack_require__("../../../../../src/app/components/profile/profile.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/profile/profile.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProfileComponent);
+    return ProfileComponent;
 }());
 
 

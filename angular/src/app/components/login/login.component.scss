@@ -1,32 +1,167 @@
-.form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+// .form-signin {
+//     max-width: 330px;
+//     padding: 15px;
+//     margin: 0 auto;
+//   }
+//   .form-signin .form-signin-heading,
+//   .form-signin .checkbox {
+//     margin-bottom: 10px;
+//   }
+//   .form-signin .checkbox {
+//     font-weight: 400;
+//   }
+//   .form-signin .form-control {
+//     position: relative;
+//     box-sizing: border-box;
+//     height: auto;
+//     padding: 10px;
+//     font-size: 16px;
+//   }
+//   .form-signin .form-control:focus {
+//     z-index: 2;
+//   }
+//   .form-signin input[type="email"] {
+//     margin-bottom: -1px;
+//     border-bottom-right-radius: 0;
+//     border-bottom-left-radius: 0;
+//   }
+//   .form-signin input[type="password"] {
+//     margin-bottom: 10px;
+//     border-top-left-radius: 0;
+//     border-top-right-radius: 0;
+//   }
+
+section {
+  padding: 3.14286rem 1.14286rem !important;;
+  background-color: #fff !important;
+
+  .g-brd-around {
+    border: solid 1px transparent !important;
   }
-  .form-signin .form-signin-heading,
-  .form-signin .checkbox {
-    margin-bottom: 10px;
+
+  .g-brd-gray-light-v3 {
+    border-color: #ddd !important;
   }
-  .form-signin .checkbox {
-    font-weight: 400;
+
+  .g-mb-80 {
+    margin-bottom: 1.71429rem !important;
   }
-  .form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
+
+  .g-px-30 {
+    padding-left: 2.14286rem !important;
+    padding-right: 2.14286rem !important;
   }
-  .form-signin .form-control:focus {
-    z-index: 2;
+
+  .g-py-50 {
+    padding-top: 3.57143rem !important;
+    padding-bottom: 3.57143rem !important;
   }
-  .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+
+  header h1 {
+    font-weight: 400 !important;
   }
-  .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+
+  form {
+    padding-top: 1.07143rem !important;
+    padding-bottom: 1.07143rem !important;
+
+    .g-rounded-left-3 {
+      border-top-left-radius: 3px !important;
+      border-bottom-left-radius: 3px !important;
+
+      span {
+        width: 45px !important;
+        background-color: #fff;
+        border-color: #ddd !important;
+        color: #999 !important;
+
+        i {
+          margin: 0 auto;
+        }
+      }
+
+      input {
+        color: #000 !important;
+        background-color: #fff;
+        border-color: #ddd !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
+        padding: 0.77143rem !important;
+      }
+
+      .g-font-size-13 {
+        font-size: 0.92857rem !important;
+      }
+
+      .g-color-gray-dark-v5 {
+        color: #999 !important;
+      }
+    }
+
+    .d-inline-block {
+      width: 50px !important;
+      height: 100%;
+      background-color: #bbb !important;
+    }
+
+    .u-btn-primary {
+      color: #fff !important;
+      background-color: #3bb18f !important;
+      font-size: 0.85714rem !important;
+      padding-top: 0.85714rem !important;
+      padding-bottom: 0.85714rem !important;
+      padding-left: 1.78571rem !important;
+      padding-right: 1.78571rem !important;
+    }
+
+    .u-btn-primary:hover, .u-btn-primary.active {
+      border-color: #58c7a7;
+      background-color: #58c7a7;
+    }
+    /* Button Facebook */
+    .u-btn-facebook {
+      color: #fff;
+      background-color: #3b5998;
+
+    }
+
+    .u-btn-facebook:hover, .u-btn-facebook.active {
+      border-color: #4c70ba;
+      background-color: #4c70ba;
+    }
+
+    .u-btn-facebook:hover, .u-btn-facebook:focus, .u-btn-facebook.active {
+      color: #fff;
+    }
+
+    .u-btn-facebook.g-btn-hover-reset:hover, .u-btn-facebook.g-btn-hover-reset.active {
+      background-color: #3b5998;
+      border-color: #3b5998;
+    }
+    
+    /* Button Twitter */
+    .u-btn-twitter {
+      color: #fff;
+      background-color: #00acee;
+    }
+
+    .u-btn-twitter:hover, .u-btn-twitter.active {
+      border-color: #22c2ff;
+      background-color: #22c2ff;
+    }
+
+    .u-btn-twitter:hover, .u-btn-twitter:focus, .u-btn-twitter.active {
+      color: #fff;
+    }
+
+    .u-btn-twitter.g-btn-hover-reset:hover, .u-btn-twitter.g-btn-hover-reset.active {
+      background-color: #00acee;
+      border-color: #00acee;
+    }
+    .g-color-gray-dark-v5 {
+        color: #999 !important;
+    }
   }
+}

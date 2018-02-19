@@ -1,5 +1,5 @@
 
-<div class="top-nav hidden-sm-down">
+<!-- <div class="top-nav hidden-sm-down">
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12">
       <ul class="top-list">
@@ -11,9 +11,9 @@
     <div class="col-lg-6 col-md-6 col-xs-12">
       <ul class="top-list-right">
         <li *ngIf="!_authService.loggedIn()"><a [routerLink]="['/login']">Client Login</a></li>
-        <li *ngIf="_authService.loggedIn()"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li *ngIf="_authService.loggedIn()"><a [routerLink]="['/dashboard']">Dashboard</a></li> -->
         <!-- <li><a [routerLink]="['/profile']">Profile</a></li> -->
-        <li><a [routerLink]="['/aboutus']">About Us</a></li>
+        <!-- <li><a [routerLink]="['/aboutus']">About Us</a></li>
         <li><a [routerLink]="['/support']">Support</a></li>
         <li *ngIf="_authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
       </ul>
@@ -26,5 +26,69 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" [routerLink]="['/']"><h3><span><i>Pay</i></span><span>PH</span></h3></a>
-</nav>
+</nav> -->
+
+<!--=== Header v1 ===-->
+<header>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-inline top-v1-contacts">
+            <li>
+              <i class="fa fa-envelope"></i> Email: <a href="mailto:rejdabu@gamil.com">rejdabu@gmail.com</a>
+            </li>
+            <li>
+              <i class="fa fa-phone"></i> Mobile: (+63) 915 280 8814
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <ul class="list-inline top-v1-data">
+            <li><a [routerLink]="['/']"><i class="fa fa-home"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-cog"></i></a></li>
+            <li *ngIf="_authService.loggedIn()"><a [routerLink]="['/myaccounts']">My Account</a></li>
+            <li *ngIf="_authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
+            <li *ngIf="!_authService.loggedIn()"><a [routerLink]="['/login']">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Topbar -->
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-inverse navbar-expand-md sticky-top nb-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggler nb-toggle navbar-toggler-right" data-toggle="collapse" data-target="#navbar-target">
+          <!-- <span class="sr-only">Toggle navigation</span> -->
+          <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+        </button>
+        <a class="navbar-brand">
+          <img id="logo-header" src="../../../assets/img/logo1-default.png" alt="Logo">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-target">
+        <ul class="navbar-nav">
+          <li *ngIf="!_authService.loggedIn()" class="nav-item"><a [routerLink]="['/']" class="nav-link">Home</a></li>
+          <li *ngIf="!_authService.loggedIn()" class="nav-item"><a [routerLink]="['/aboutus']" class="nav-link">About Us</a></li>
+          <li *ngIf="!_authService.loggedIn()" class="nav-item"><a [routerLink]="['/support']" class="nav-link">Support</a></li>
+          <li *ngIf="!_authService.loggedIn()" class="nav-item"><a [routerLink]="['/']" class="nav-link">Promos</a></li>
+          <li *ngIf="_authService.loggedIn()" class="nav-item"><a [routerLink]="['/dashboard']" class="nav-link">Dashboard</a></li>
+          <li *ngIf="_authService.loggedIn()" class="nav-item"><a [routerLink]="['/cashin']" class="nav-link">Cash In</a></li>
+          <li *ngIf="_authService.loggedIn()" class="nav-item"><a [routerLink]="['/buyload']" class="nav-link">Buy Load</a></li>
+          <li *ngIf="_authService.loggedIn()" class="nav-item"><a [routerLink]="['/paybills']" class="nav-link">Pay Bills</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>  
+  <!-- End Navbar -->
+</header>
+<!--=== End Header v1 ===-->
 

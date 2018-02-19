@@ -1,20 +1,78 @@
-html, body {
-    //   font-family: 'Open Sans', sans-serif;
-      -webkit-font-smoothing: antialiased; }
-      @media (max-width: 419px) {
-        html, body {
-          font-size: 12px; }}
-    
-    body {
-      color: #212121;
-      background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
-      background-size: 220px 220px; 
-    
-      #theme-wrapper {
-        box-shadow: 0 0 53px 0 rgba(0, 0, 0, 0.55);
-        max-width: 1920px; 
-        width: 100%;
-      }
-    }
-    
-    
+/*
+ * Template Name: Unify - Responsive Bootstrap Template
+ * Description: Business, Corporate, Portfolio, E-commerce, Blog and One Page Template.
+ * Version: 1.9
+ * Author: @htmlstream
+ * Website: http://htmlstream.com
+*/
+
+/*Import Global Compulsory CSS Files*/
+// @import 'assets/css/app.scss';
+// @import 'assets/css/blocks.scss';
+
+* {
+	border-radius: 0;
+}
+
+body {
+ color: #333;
+ font-size: 13px;
+ line-height: 1.6;
+}
+
+body.header-fixed-space {
+  padding-top: 94px;
+}
+body.header-fixed-space-v2 {
+	padding-top: 135px;
+}
+
+@media (max-width: 991px) {
+	body.header-fixed-space,
+	body.header-fixed-space-v2 {
+		padding-top: 0;
+	}
+}
+
+p,
+li,
+li a,
+label {
+ color: #555;
+}
+
+a {
+ color: #72c02c;
+ text-decoration: none;
+}
+
+a,
+a:focus,
+a:hover,
+a:active,
+button,
+button:hover {
+	outline: 0 !important;
+}
+
+a:focus {
+text-decoration: none;
+}
+a:hover {
+ color: #72c02c;
+ text-decoration: underline;
+}
+
+/*Boxed Layout
+------------------------------------*/
+.wrapper {
+	background: #fff;
+}
+
+.boxed-layout {
+  padding: 0;
+  box-shadow: 0 0 5px #ccc;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background: url(assets/img/whitey.jpg) repeat;
+}

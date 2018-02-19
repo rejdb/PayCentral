@@ -20,13 +20,14 @@
       "prefix": "ph",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "assets/js/app.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
