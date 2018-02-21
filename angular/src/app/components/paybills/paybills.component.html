@@ -1,3 +1,66 @@
-<p>
-  paybills works!
-</p>
+<section>
+  <div class="container">
+    <div class="row justify-content-center" *ngIf="showpane">
+      <div  class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+        <div *ngIf="!bills_category" class="text-center"><img src="../../assets/img/icon_loading.gif" alt=""></div>
+        <div *ngIf="bills_category" class="text-center mb-4"><h4>What do you want to pay?</h4></div>
+        <div id="accordion" *ngIf="bills_category">
+          <div class="card mb-2 p-3 bills-item" *ngFor="let outlet of bills_category">
+            <div class="card-block" (click)="get_bills_payload(outlet.id)" data-toggle="collapse" [attr.data-target]="'#' + outlet.id" aria-expanded="true" [attr.aria-controls]="outlet.id">
+              <h5 class="card-title">{{outlet.outlet.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{outlet.outlet.outlet_names_subset}}</h6>
+            </div>
+            <div id="{{outlet.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div *ngIf="!bill_payload" class="text-center"><img src="../../assets/img/icon_loading.gif" alt=""></div>
+                <div class="mb-3" *ngIf="bill_payload">
+                  <select [(ngModel)]="selected_outlet" class="custom-select custom-select-lg" (change)="get_selected_payout()">
+                    <option *ngFor="let bill of bill_payload['payouts']" [ngValue]="bill">{{bill.name}}</option>
+                  </select>
+                  <div *ngIf="selected_outlet" class="mt-3">
+                    <p class="mb-1">{{selected_outlet.disabled_notice}}</p>
+                    <small>{{selected_outlet.help_text}}</small>
+                    <button *ngIf="!selected_outlet.disabled_notice" class="btn btn-success float-right" (click)="showpane = !showpane">Proceed &gt;&gt;</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="row justify-content-center" *ngIf="!showpane">
+      <div  class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+          <div class="text-center mb-4"><h4>Pay your bill</h4></div>
+        <div class="card">
+          <form novalidate *ngIf="selected_outlet" (submit)="onSubmitPayment()">
+            <div class="card-header">
+                <h5 class="card-title">{{selected_outlet['name']}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{selected_outlet['payment_outlet_type']['outlet_names_subset']}}</h6>
+            </div>
+            <div class="card-body">
+              <div class="form-group" *ngFor="let field of selected_outlet['payment_outlet_type']['fields']">
+                <label for="{{field.id}}">{{field.name}}</label>
+                <input type="{{field.field_type || 'text'}}" [attr.ngModel]="field.id" class="form-control" id="{{field.id}}" name="{{field.id}}" placeholder="{{field.name}}">
+                <small class="form-text text-muted">{{field.help_text}}</small>
+              </div>
+              <div class="form-group mb-4" *ngIf="selected_outlet['payment_outlet_type']['fields'].length != 0">
+                <label for="amount">Exact Amount</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">PHP</span>
+                  </div>
+                  <input type="number" class="form-control" id="amount" name="amount" placeholder="0">
+                </div>
+              </div>
+            </div>
+            <div class="card-footer clearfix">
+              <button class="btn btn-primary float-right ml-2 my-2" type="submit" *ngIf="selected_outlet['payment_outlet_type']['fields'].length != 0">Submit &gt;&gt;</button>
+              <button class="btn btn-light float-right my-2" (click)="showpane = !showpane">&lt;&lt; Back</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

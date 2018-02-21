@@ -48,8 +48,12 @@ const coinsPhRoutes = require('./routes/coinsRoute');
 app.use('/api/users', userRoutes);
 app.use('/api/coins', coinsPhRoutes);
 
-app.use('/', (req, rsp) => {
-    rsp.send('Invalid Endpoint');
+// app.use('/', (req, rsp) => {
+//     rsp.send('Invalid Endpoint');
+// });
+
+app.get('*', (req, rsp) => {
+    rsp.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Server Listener

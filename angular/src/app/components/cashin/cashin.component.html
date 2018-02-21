@@ -1,3 +1,41 @@
-<p>
-  cashin works!
-</p>
+<section class="container">
+  <div class="row justify-content-center">
+    <div  class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+      <div class="text-center mb-4"><h4>How would you like to Cash-In?</h4></div>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 payout_feature" *ngFor="let feature of payout_features">
+          <div class="card text-center payout_feature_item" (click)="nextsteps(feature)">
+            <img class="card-img-top" src="{{feature.logo_url}}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{feature.name}}</h4>
+              <p class="card-text"></p>
+            </div>
+            <div class="card-footer"><strong>{{feature.payment_outlet_type.payout_duration || 'Instant'}}</strong> after payment</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mb-4"><h4>You can also try these other options</h4></div>
+      <div class="row justify-content-center" id="accordion">
+        <div class="col-sm-12 payout-group mb-2" *ngFor="let payout of payouts">
+          <div class="card p-3 payout-group-item">
+            <div class="row card-block" data-toggle="collapse" [attr.data-target]="'#' + payout.id" aria-expanded="true" [attr.aria-controls]="payout.id">
+              <div class="col-md-8 col-sm-12 payout-group-item-left">
+                <img src="" alt="">
+                <span class="pg-item-left-content">
+                  <div class="content-name">{{payout.name}}</div>
+                  <div class="content-desc"><small>{{payout.outlet_names_subset[0]}}</small></div>
+                </span>
+              </div>
+              <div class="col-md-4 col-sm-12 payout-group-item-right text-right"><span><strong>{{payout.payout_duration || 'Instant'}}</strong> after payment</span></div>
+            </div>
+            <div id="{{payout.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

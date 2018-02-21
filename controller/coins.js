@@ -101,7 +101,7 @@ module.exports.get_bills_category = (req, rsp, next) => {
             outlets.forEach(outlet => {
                 newOutlets.push({
                     id: outlet.id,
-                    name: outlet.name,
+                    outlet: outlet,
                     amount_limit: outlet.amount_limit,
                     request: {
                         method: 'GET',

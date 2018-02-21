@@ -1,0 +1,20 @@
+section {
+    // background: #eee;
+    // background: url("../../../assets/img/whitey.jpg") repeat scroll 0 0 #fff;
+    .container {
+        // margin-top: 20px;
+        padding: 20px;
+        min-height: 350px;
+
+        .bills-item {
+            cursor: pointer;
+
+        }
+
+        .bills-item:hover, .bills-item:focus {
+            border-color: rgb(117, 190, 124);
+            // background-color: #eee;
+            cursor: pointer;
+        }
+    }
+}

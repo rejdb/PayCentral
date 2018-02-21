@@ -1,0 +1,94 @@
+.container {
+    margin-top: 20px;
+    padding: 10px;
+
+    .payout_feature {
+        margin-bottom: 15px;
+
+        .payout_feature_item {
+            padding: 10px;
+            height: 120px;
+            background-color: white;
+
+            img.card-img-top {
+                padding: 0 10px;
+                height: 35%;
+                margin-bottom: 10px;
+            }
+
+            h4.card-title {
+                font-size: 0.75rem;
+                color: rgb(161, 159, 159);
+            }
+
+            .card-footer {
+                color: #989898;
+                padding: 5px 0;
+                font-size: 8px;
+                display: block;
+                border: 0px !important;
+                position: relative;
+                top: 0px;
+                background-color: transparent;
+
+                strong {
+                    color: rgb(87, 96, 223);
+                }
+            }
+        }
+
+        .payout_feature_item:hover {
+            border: 1px solid rgb(115, 115, 185);
+            cursor: pointer;
+        }
+    }
+
+    .payout-group {
+
+        .payout-group-item {
+            min-height: 70px;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .payout-group-item-left {
+            padding-left: 8px;
+            text-align: left;
+            display: inherit;
+            position: relative;
+
+            img {
+                width: 20%;
+                padding: 5px;
+                margin-right: 20px;
+                margin-left: 10px;
+            }
+
+            .content-name {
+                font-size: 16px;
+                color: #989898;
+            }
+
+            .content-desc {
+                font-size: 14px;
+                color: #b8b3b3;
+                margin-top: -5px;
+            }
+        }
+
+        .payout-group-item-right {
+            font-size: 0.6rem;
+            color: #b8b3b3;
+
+            strong {
+                color: rgb(87, 96, 223);
+            }
+        }
+    }
+
+    .payout-group-item:hover, .payout-group-item:focus {
+        border-color: rgb(117, 190, 124);
+        background-color: #eee;
+        cursor: pointer;
+    }
+}
