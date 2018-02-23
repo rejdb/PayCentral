@@ -31,17 +31,18 @@
     </div>
     <div class="row justify-content-center" *ngIf="!showpane">
       <div  class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
-          <div class="text-center mb-4"><h4>Pay your bill</h4></div>
+        <div class="text-center mb-4"><h4>Pay your bill</h4></div>
         <div class="card">
-          <form novalidate *ngIf="selected_outlet" (submit)="onSubmitPayment()">
+          <form *ngIf="selected_outlet" #myForm="ngForm" (submit)="onSubmitPayment(myForm.value)">
             <div class="card-header">
                 <h5 class="card-title">{{selected_outlet['name']}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{selected_outlet['payment_outlet_type']['outlet_names_subset']}}</h6>
             </div>
             <div class="card-body">
+              <flash-messages></flash-messages>
               <div class="form-group" *ngFor="let field of selected_outlet['payment_outlet_type']['fields']">
                 <label for="{{field.id}}">{{field.name}}</label>
-                <input type="{{field.field_type || 'text'}}" [attr.ngModel]="field.id" class="form-control" id="{{field.id}}" name="{{field.id}}" placeholder="{{field.name}}">
+                <input type="{{field.field_type || 'text'}}" ngModel class="form-control" id="{{field.id}}" name="{{field.id}}" placeholder="{{field.name}}" required>
                 <small class="form-text text-muted">{{field.help_text}}</small>
               </div>
               <div class="form-group mb-4" *ngIf="selected_outlet['payment_outlet_type']['fields'].length != 0">
@@ -50,7 +51,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon3">PHP</span>
                   </div>
-                  <input type="number" class="form-control" id="amount" name="amount" placeholder="0">
+                  <input type="number" class="form-control" id="amount" name="amount" placeholder="0" ngModel required>
                 </div>
               </div>
             </div>

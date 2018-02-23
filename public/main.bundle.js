@@ -759,7 +759,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/paybills/paybills.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\n  <div class=\"container\">\n    <div class=\"row justify-content-center\" *ngIf=\"showpane\">\n      <div  class=\"col-lg-6 col-md-10 col-sm-12 col-xs-12\">\n        <div *ngIf=\"!bills_category\" class=\"text-center\"><img src=\"../../assets/img/icon_loading.gif\" alt=\"\"></div>\n        <div *ngIf=\"bills_category\" class=\"text-center mb-4\"><h4>What do you want to pay?</h4></div>\n        <div id=\"accordion\" *ngIf=\"bills_category\">\n          <div class=\"card mb-2 p-3 bills-item\" *ngFor=\"let outlet of bills_category\">\n            <div class=\"card-block\" (click)=\"get_bills_payload(outlet.id)\" data-toggle=\"collapse\" [attr.data-target]=\"'#' + outlet.id\" aria-expanded=\"true\" [attr.aria-controls]=\"outlet.id\">\n              <h5 class=\"card-title\">{{outlet.outlet.name}}</h5>\n              <h6 class=\"card-subtitle mb-2 text-muted\">{{outlet.outlet.outlet_names_subset}}</h6>\n            </div>\n            <div id=\"{{outlet.id}}\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n              <div class=\"card-body\">\n                <div *ngIf=\"!bill_payload\" class=\"text-center\"><img src=\"../../assets/img/icon_loading.gif\" alt=\"\"></div>\n                <div class=\"mb-3\" *ngIf=\"bill_payload\">\n                  <select [(ngModel)]=\"selected_outlet\" class=\"custom-select custom-select-lg\" (change)=\"get_selected_payout()\">\n                    <option *ngFor=\"let bill of bill_payload['payouts']\" [ngValue]=\"bill\">{{bill.name}}</option>\n                  </select>\n                  <div *ngIf=\"selected_outlet\" class=\"mt-3\">\n                    <p class=\"mb-1\">{{selected_outlet.disabled_notice}}</p>\n                    <small>{{selected_outlet.help_text}}</small>\n                    <button *ngIf=\"!selected_outlet.disabled_notice\" class=\"btn btn-success float-right\" (click)=\"showpane = !showpane\">Proceed &gt;&gt;</button>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>  \n    </div>\n    <div class=\"row justify-content-center\" *ngIf=\"!showpane\">\n      <div  class=\"col-lg-6 col-md-10 col-sm-12 col-xs-12\">\n          <div class=\"text-center mb-4\"><h4>Pay your bill</h4></div>\n        <div class=\"card\">\n          <form novalidate *ngIf=\"selected_outlet\" (submit)=\"onSubmitPayment()\">\n            <div class=\"card-header\">\n                <h5 class=\"card-title\">{{selected_outlet['name']}}</h5>\n                <h6 class=\"card-subtitle mb-2 text-muted\">{{selected_outlet['payment_outlet_type']['outlet_names_subset']}}</h6>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"form-group\" *ngFor=\"let field of selected_outlet['payment_outlet_type']['fields']\">\n                <label for=\"{{field.id}}\">{{field.name}}</label>\n                <input type=\"{{field.field_type || 'text'}}\" [attr.ngModel]=\"field.id\" class=\"form-control\" id=\"{{field.id}}\" name=\"{{field.id}}\" placeholder=\"{{field.name}}\">\n                <small class=\"form-text text-muted\">{{field.help_text}}</small>\n              </div>\n              <div class=\"form-group mb-4\" *ngIf=\"selected_outlet['payment_outlet_type']['fields'].length != 0\">\n                <label for=\"amount\">Exact Amount</label>\n                <div class=\"input-group\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\" id=\"basic-addon3\">PHP</span>\n                  </div>\n                  <input type=\"number\" class=\"form-control\" id=\"amount\" name=\"amount\" placeholder=\"0\">\n                </div>\n              </div>\n            </div>\n            <div class=\"card-footer clearfix\">\n              <button class=\"btn btn-primary float-right ml-2 my-2\" type=\"submit\" *ngIf=\"selected_outlet['payment_outlet_type']['fields'].length != 0\">Submit &gt;&gt;</button>\n              <button class=\"btn btn-light float-right my-2\" (click)=\"showpane = !showpane\">&lt;&lt; Back</button>\n            </div>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
+module.exports = "<section>\n  <div class=\"container\">\n    <div class=\"row justify-content-center\" *ngIf=\"showpane\">\n      <div  class=\"col-lg-6 col-md-10 col-sm-12 col-xs-12\">\n        <div *ngIf=\"!bills_category\" class=\"text-center\"><img src=\"../../assets/img/icon_loading.gif\" alt=\"\"></div>\n        <div *ngIf=\"bills_category\" class=\"text-center mb-4\"><h4>What do you want to pay?</h4></div>\n        <div id=\"accordion\" *ngIf=\"bills_category\">\n          <div class=\"card mb-2 p-3 bills-item\" *ngFor=\"let outlet of bills_category\">\n            <div class=\"card-block\" (click)=\"get_bills_payload(outlet.id)\" data-toggle=\"collapse\" [attr.data-target]=\"'#' + outlet.id\" aria-expanded=\"true\" [attr.aria-controls]=\"outlet.id\">\n              <h5 class=\"card-title\">{{outlet.outlet.name}}</h5>\n              <h6 class=\"card-subtitle mb-2 text-muted\">{{outlet.outlet.outlet_names_subset}}</h6>\n            </div>\n            <div id=\"{{outlet.id}}\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n              <div class=\"card-body\">\n                <div *ngIf=\"!bill_payload\" class=\"text-center\"><img src=\"../../assets/img/icon_loading.gif\" alt=\"\"></div>\n                <div class=\"mb-3\" *ngIf=\"bill_payload\">\n                  <select [(ngModel)]=\"selected_outlet\" class=\"custom-select custom-select-lg\" (change)=\"get_selected_payout()\">\n                    <option *ngFor=\"let bill of bill_payload['payouts']\" [ngValue]=\"bill\">{{bill.name}}</option>\n                  </select>\n                  <div *ngIf=\"selected_outlet\" class=\"mt-3\">\n                    <p class=\"mb-1\">{{selected_outlet.disabled_notice}}</p>\n                    <small>{{selected_outlet.help_text}}</small>\n                    <button *ngIf=\"!selected_outlet.disabled_notice\" class=\"btn btn-success float-right\" (click)=\"showpane = !showpane\">Proceed &gt;&gt;</button>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>  \n    </div>\n    <div class=\"row justify-content-center\" *ngIf=\"!showpane\">\n      <div  class=\"col-lg-6 col-md-10 col-sm-12 col-xs-12\">\n        <div class=\"text-center mb-4\"><h4>Pay your bill</h4></div>\n        <div class=\"card\">\n          <form *ngIf=\"selected_outlet\" #myForm=\"ngForm\" (submit)=\"onSubmitPayment(myForm.value)\">\n            <div class=\"card-header\">\n                <h5 class=\"card-title\">{{selected_outlet['name']}}</h5>\n                <h6 class=\"card-subtitle mb-2 text-muted\">{{selected_outlet['payment_outlet_type']['outlet_names_subset']}}</h6>\n            </div>\n            <div class=\"card-body\">\n              <flash-messages></flash-messages>\n              <div class=\"form-group\" *ngFor=\"let field of selected_outlet['payment_outlet_type']['fields']\">\n                <label for=\"{{field.id}}\">{{field.name}}</label>\n                <input type=\"{{field.field_type || 'text'}}\" ngModel class=\"form-control\" id=\"{{field.id}}\" name=\"{{field.id}}\" placeholder=\"{{field.name}}\" required>\n                <small class=\"form-text text-muted\">{{field.help_text}}</small>\n              </div>\n              <div class=\"form-group mb-4\" *ngIf=\"selected_outlet['payment_outlet_type']['fields'].length != 0\">\n                <label for=\"amount\">Exact Amount</label>\n                <div class=\"input-group\">\n                  <div class=\"input-group-prepend\">\n                    <span class=\"input-group-text\" id=\"basic-addon3\">PHP</span>\n                  </div>\n                  <input type=\"number\" class=\"form-control\" id=\"amount\" name=\"amount\" placeholder=\"0\" ngModel required>\n                </div>\n              </div>\n            </div>\n            <div class=\"card-footer clearfix\">\n              <button class=\"btn btn-primary float-right ml-2 my-2\" type=\"submit\" *ngIf=\"selected_outlet['payment_outlet_type']['fields'].length != 0\">Submit &gt;&gt;</button>\n              <button class=\"btn btn-light float-right my-2\" (click)=\"showpane = !showpane\">&lt;&lt; Back</button>\n            </div>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -789,6 +789,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/module/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -801,17 +803,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PaybillsComponent = /** @class */ (function () {
-    function PaybillsComponent(_authService, _router) {
+    function PaybillsComponent(_authService, _router, _flashMsg) {
         this._authService = _authService;
         this._router = _router;
+        this._flashMsg = _flashMsg;
         this.showpane = true;
+        this._user = this._authService.getuser();
+        this.nonce = new Date().getTime();
+        console.log(this._authService.getuser(), this.nonce);
     }
     PaybillsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._authService._get('/api/coins/bills-category').subscribe(function (payload) {
             _this.bills_category = payload.payouts_categories;
-            console.log(payload);
         });
     };
     PaybillsComponent.prototype.get_bills_payload = function (bill_cat_id) {
@@ -822,7 +828,6 @@ var PaybillsComponent = /** @class */ (function () {
             this.selected_id = bill_cat_id;
             this._authService._get('/api/coins/bills-category/' + bill_cat_id).subscribe(function (payload) {
                 _this.bill_payload = payload;
-                console.log(payload);
             });
         }
     };
@@ -830,11 +835,32 @@ var PaybillsComponent = /** @class */ (function () {
         // this.selected_outlet = outlet;
         console.log(this.selected_outlet);
     };
-    PaybillsComponent.prototype.onSubmitPayment = function () {
-        // console.log(this.form.value);
-        console.log('testing');
+    PaybillsComponent.prototype.onSubmitPayment = function (data) {
+        //Validator
+        for (var prop in data) {
+            if (data[prop] == '' || data[prop] == undefined) {
+                this._flashMsg.show(prop + ' is required', { cssClass: 'alert-danger text-center' });
+                return false;
+            }
+        }
+        var coins = Object.assign(data, {
+            currency: "PHP",
+            pay_with_wallet: "PBTC",
+            payment_outlet: this.selected_outlet['id'],
+            rate: data.rate
+        });
+        var user = Object.assign(this._user, { nonce: this.nonce });
+        var postData = Object.assign({ user: user }, { coins: coins });
+        this._form.reset();
+        this.selected_outlet = null;
+        this.showpane = true;
+        console.log(postData);
         return false;
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myForm'),
+        __metadata("design:type", Object)
+    ], PaybillsComponent.prototype, "_form", void 0);
     PaybillsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'ph-paybills',
@@ -842,7 +868,8 @@ var PaybillsComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/components/paybills/paybills.component.scss")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]])
     ], PaybillsComponent);
     return PaybillsComponent;
 }());
@@ -1197,6 +1224,9 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.loadToken = function () {
         this.authToken = localStorage.getItem('token');
+    };
+    AuthService.prototype.getuser = function () {
+        return JSON.parse(localStorage.getItem('user'));
     };
     AuthService.prototype.loggedIn = function () {
         return Object(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])();

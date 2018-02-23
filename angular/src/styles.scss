@@ -18,6 +18,7 @@ body {
  color: #333;
  font-size: 13px;
  line-height: 1.6;
+ background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
 }
 
 body.header-fixed-space {
@@ -65,10 +66,10 @@ a:hover {
 
 /*Boxed Layout
 ------------------------------------*/
-.wrapper {
-	// background: #fff;
-	background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
-}
+// .wrapper {
+// 	background: #fff;
+// 	// background: url("assets/img/whitey.jpg") repeat scroll 0 0 #fff;
+// }
 
 .boxed-layout {
   padding: 0;

@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'ph-paybills',
   templateUrl: './paybills.component.html',
   styleUrls: ['./paybills.component.scss']
 })
+
 export class PaybillsComponent implements OnInit {
+  @ViewChild('myForm') _form: any;
+  nonce: any;
   showpane: Boolean;
+  _user: Object;
 
   selected_id: String;
   selected_outlet: Object;
@@ -18,13 +23,19 @@ export class PaybillsComponent implements OnInit {
 
   constructor(
     private _authService: AuthService,
-    private _router: Router
-  ) { this.showpane = true; }
+    private _router: Router,
+    private _flashMsg: FlashMessagesService
+  ) { 
+    this.showpane = true; 
+    this._user = this._authService.getuser();
+    this.nonce = new Date().getTime();
+
+    console.log(this._authService.getuser(), this.nonce);
+  }
 
   ngOnInit() {
     this._authService._get('/api/coins/bills-category').subscribe(payload => {
       this.bills_category = payload.payouts_categories;
-      console.log(payload);
     });
   }
 
@@ -35,7 +46,6 @@ export class PaybillsComponent implements OnInit {
       this.selected_id = bill_cat_id;
       this._authService._get('/api/coins/bills-category/' + bill_cat_id).subscribe(payload => {
         this.bill_payload = payload;
-        console.log(payload);
       });
     }
   }
@@ -45,9 +55,31 @@ export class PaybillsComponent implements OnInit {
     console.log(this.selected_outlet);
   }
 
-  onSubmitPayment() {
-    // console.log(this.form.value);
-    console.log('testing');
+  onSubmitPayment(data) {
+
+    //Validator
+    for(let prop in data) {
+      if(data[prop] == '' || data[prop] == undefined) {
+        this._flashMsg.show(prop + ' is required', { cssClass: 'alert-danger text-center'});
+        return false;
+      }
+    }
+
+    let coins = Object.assign(data, {
+      currency: "PHP",
+      pay_with_wallet: "PBTC",
+      payment_outlet: this.selected_outlet['id'],
+      rate: data.rate
+    });
+
+    let user = Object.assign(this._user, {nonce: this.nonce});
+    let postData = Object.assign({user : user}, {coins: coins});
+
+    this._form.reset();
+    this.selected_outlet = null;
+    this.showpane = true;
+    console.log(postData);
+
     return false;
   }
 

@@ -60,6 +60,10 @@ export class AuthService {
     this.authToken = localStorage.getItem('token');
   }
 
+  getuser() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
   loggedIn() {
     return tokenNotExpired();
   }

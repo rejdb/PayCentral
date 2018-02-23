@@ -45,8 +45,10 @@ require('./config/passport')(passport);
 // Routes
 const userRoutes = require('./routes/usersRoute');
 const coinsPhRoutes = require('./routes/coinsRoute');
+const sellRoutes = require('./routes/sellRoutes');
 app.use('/api/users', userRoutes);
 app.use('/api/coins', coinsPhRoutes);
+app.use('/api/transact', sellRoutes);
 
 // app.use('/', (req, rsp) => {
 //     rsp.send('Invalid Endpoint');

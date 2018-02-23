@@ -1,9 +1,8 @@
 {
     "env": {
-        "base_url": "http://localhost:3001",
         "coinsapi": "7fyIgBG7SPFNN5093XJMMQfWxQ3xk9RSJWIBo7nd",
         "secret_key": "w2kqzpbVWAXdZiL4F81pC2UGiqa08bEINYKEk4Jss8znZz2uXq",
-        "mongodb_pwd": "Caitsh3lt3r",
+        "mongodb_pwd": "YZjaZQkcVKE8ylnh",
         "database": "PayJuanExpress",
 
         "account_url": "https://coins.ph/api/v3/crypto-accounts/?currency=PBTC",

@@ -17,7 +17,7 @@ const userSchema = mongoose.Schema({
         first: {type: String, required: true},
         last: {type: String, required: true}
     }
-});
+},{ timestamps: { createdAt: 'created_at' } });
 
 const User = module.exports = mongoose.model('User', userSchema);
 
