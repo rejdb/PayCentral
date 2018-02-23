@@ -13,9 +13,14 @@ module.exports = function(passport) {
                 return done(err, false);}
 
             if(user) {
-                return done(null, user);
+                return done(null, {
+                    _id: user._id,
+                    fullname: user.fullname,
+                    email: user.email,
+                    balance: user.balance
+                });
             }else{
-                return done(null, false);
+                return done(null, {error: true, message: 'Token Expires!'});
             }
         });
     }));

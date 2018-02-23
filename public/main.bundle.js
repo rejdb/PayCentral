@@ -811,8 +811,6 @@ var PaybillsComponent = /** @class */ (function () {
         this._flashMsg = _flashMsg;
         this.showpane = true;
         this._user = this._authService.getuser();
-        this.nonce = new Date().getTime();
-        console.log(this._authService.getuser(), this.nonce);
     }
     PaybillsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -822,6 +820,7 @@ var PaybillsComponent = /** @class */ (function () {
     };
     PaybillsComponent.prototype.get_bills_payload = function (bill_cat_id) {
         var _this = this;
+        this.nonce = new Date().getTime();
         if (this.selected_id !== bill_cat_id) {
             this.bill_payload = null;
             this.selected_outlet = null;
@@ -836,6 +835,7 @@ var PaybillsComponent = /** @class */ (function () {
         console.log(this.selected_outlet);
     };
     PaybillsComponent.prototype.onSubmitPayment = function (data) {
+        var _this = this;
         //Validator
         for (var prop in data) {
             if (data[prop] == '' || data[prop] == undefined) {
@@ -847,14 +847,21 @@ var PaybillsComponent = /** @class */ (function () {
             currency: "PHP",
             pay_with_wallet: "PBTC",
             payment_outlet: this.selected_outlet['id'],
-            rate: data.rate
+            rate: data.amount
         });
         var user = Object.assign(this._user, { nonce: this.nonce });
         var postData = Object.assign({ user: user }, { coins: coins });
-        this._form.reset();
-        this.selected_outlet = null;
-        this.showpane = true;
-        console.log(postData);
+        this._authService._post('/api/transact/billspay', postData).subscribe(function (data) {
+            console.log(data);
+            if (!data.success) {
+                _this._flashMsg.show(data.message, { cssClass: 'alert-danger text-center' });
+            }
+            else {
+                _this._form.reset();
+                _this.selected_outlet = null;
+                _this.showpane = true;
+            }
+        });
         return false;
     };
     __decorate([

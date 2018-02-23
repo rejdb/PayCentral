@@ -28,9 +28,6 @@ export class PaybillsComponent implements OnInit {
   ) { 
     this.showpane = true; 
     this._user = this._authService.getuser();
-    this.nonce = new Date().getTime();
-
-    console.log(this._authService.getuser(), this.nonce);
   }
 
   ngOnInit() {
@@ -40,6 +37,7 @@ export class PaybillsComponent implements OnInit {
   }
 
   get_bills_payload(bill_cat_id) {
+    this.nonce = new Date().getTime();
     if(this.selected_id !== bill_cat_id) {
       this.bill_payload = null;
       this.selected_outlet = null;
@@ -69,16 +67,22 @@ export class PaybillsComponent implements OnInit {
       currency: "PHP",
       pay_with_wallet: "PBTC",
       payment_outlet: this.selected_outlet['id'],
-      rate: data.rate
+      rate: data.amount
     });
 
     let user = Object.assign(this._user, {nonce: this.nonce});
     let postData = Object.assign({user : user}, {coins: coins});
 
-    this._form.reset();
-    this.selected_outlet = null;
-    this.showpane = true;
-    console.log(postData);
+    this._authService._post('/api/transact/billspay', postData).subscribe(data => {
+      console.log(data);
+      if(!data.success) {
+        this._flashMsg.show(data.message, { cssClass: 'alert-danger text-center'});
+      }else{
+        this._form.reset();
+        this.selected_outlet = null;
+        this.showpane = true;
+      }
+    });
 
     return false;
   }

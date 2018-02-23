@@ -12,7 +12,11 @@ const userSchema = mongoose.Schema({
         unique: true, 
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ 
     },
-    balance: {type:Number, default: 0},
+    balance: {
+        current: { type: Number, default: 0 },
+        pending: { type: Number, default: 0 },
+        locked: { type: Number, default: 0 }
+    },
     fullname: {
         first: {type: String, required: true},
         last: {type: String, required: true}
