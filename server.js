@@ -1,6 +1,6 @@
-const PORT = process.env.PORT || 8080;
-// const PORT = process.env.PORT || 3001;
-// const HOSTNAME = 'payr.node.js';
+// const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
+const HOSTNAME = '';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -59,6 +59,6 @@ app.get('*', (req, rsp) => {
 });
 
 // Server Listener
-app.listen(PORT, (req, res) => {
-    console.log('Server stated on port ' + PORT);
+app.listen(PORT, HOSTNAME, (req, res) => {
+    console.log('Server stated on ' + HOSTNAME + ' port ' + PORT);
 });

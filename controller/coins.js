@@ -1,39 +1,10 @@
-const request = require('request');
-const crypto = require('crypto');
-const config = require('../config/database');
-
-const signature = (url, body='') => {
-    new_nonce = new Date().getTime();
-    query = new_nonce.toString() + url + body;
-    hmac = crypto.createHmac("sha256", process.env.secret_key).update(query).digest("hex");
-    return {
-        ACCESS_KEY: process.env.coinsapi,
-        ACCESS_NONCE: new_nonce,
-        ACCESS_SIGNATURE: hmac
-    };
-}
-
-const _get = (url) => {
-    return {
-        url: url,
-        method: 'GET',
-        headers: signature(url)
-    }
-}
-
-const _send = (url, body='', method="POST") => {
-    return {
-        url: url,
-        method: method,
-        headers: signature(url),
-        form: body
-    }
-}
+const provider = require('../helpers/provider.helper');
 
 module.exports.get_accounts = (req, rsp, next) => {
-    request(_get(process.env.account_url), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.account_url, (err, res, body) => {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
+        console.log(json);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
         }else{
@@ -42,12 +13,13 @@ module.exports.get_accounts = (req, rsp, next) => {
                 account: json['crypto-accounts'][0]
             });
         }
-    });
+    })
 }
 
 module.exports.get_mobile_networks = (req, rsp, next) => {
-    request(_get(process.env.mobile_network_url), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.mobile_network_url, (err, res, body) => {  
+        if(err) return rsp.json({error: err});
+
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -68,8 +40,8 @@ module.exports.get_mobile_networks = (req, rsp, next) => {
 }
 
 module.exports.get_gaming_pins = (req, rsp, next) => {
-    request(_get(process.env.gaming_pins_url), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.gaming_pins_url, (err, res, body) => {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -90,8 +62,8 @@ module.exports.get_gaming_pins = (req, rsp, next) => {
 }
 
 module.exports.get_bills_category = (req, rsp, next) => {
-    request(_get(process.env.bills_payment_category), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.bills_payment_category, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -120,8 +92,8 @@ module.exports.get_bills_category = (req, rsp, next) => {
 }
 
 module.exports.get_bills_category_id = (req, rsp, next) => {    
-    request(_get(process.env.bills_payment_category_id + req.params.cat_id), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.bills_payment_category_id + req.params.cat_id, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -138,8 +110,8 @@ module.exports.get_bills_category_id = (req, rsp, next) => {
 }
 
 module.exports.get_cashout_category = (req, rsp, next) => {    
-    request(_get(process.env.cash_out_categories), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.cash_out_categories, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -156,8 +128,8 @@ module.exports.get_cashout_category = (req, rsp, next) => {
 }
 
 module.exports.get_cashout_featured = (req, rsp, next) => {    
-    request(_get(process.env.cash_out_featured), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.cash_out_featured, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -174,8 +146,8 @@ module.exports.get_cashout_featured = (req, rsp, next) => {
 }
 
 module.exports.get_cashout_outlet = (req, rsp, next) => {    
-    request(_get(process.env.cash_out_outlet + req.params.cat_id), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.cash_out_outlet + req.params.cat_id, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -194,8 +166,8 @@ module.exports.get_cashout_outlet = (req, rsp, next) => {
 // Cash-In API
 
 module.exports.get_cashin_category = (req, rsp, next) => {    
-    request(_get(process.env.cash_in_categories), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.cash_in_categories, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -212,8 +184,8 @@ module.exports.get_cashin_category = (req, rsp, next) => {
 }
 
 module.exports.get_cashin_featured = (req, rsp, next) => {    
-    request(_get(process.env.cash_in_featured), function(err, res, body) {  
-        if(err) { throw err; }
+    provider.__get(process.env.cash_in_featured, function(err, res, body) {  
+        if(err) return rsp.json({error:err});
         let json = JSON.parse(body);
         if(json.errors) {
             rsp.json({success: false, message: json.errors[0]})
@@ -230,7 +202,7 @@ module.exports.get_cashin_featured = (req, rsp, next) => {
 }
 
 module.exports.get_cashin_outlet = (req, rsp, next) => {    
-    request(_get(process.env.cash_in_outlet + req.params.cat_id), function(err, res, body) {  
+    provider.__get(process.env.cash_in_outlet + req.params.cat_id, function(err, res, body) {  
         if(err) { throw err; }
         let json = JSON.parse(body);
         if(json.errors) {
@@ -247,10 +219,21 @@ module.exports.get_cashin_outlet = (req, rsp, next) => {
     });
 }
 
-module.exports.get_auth = (url, cb) => {
-    request(_get(url), function(err, res, body) {  
-        if(err) { throw err; }
-        let json = JSON.parse(body);
-        cb(json);
-    });
+module.exports._check_api_route = (req, rsp, next) => {
+    const url = req.query.url || null;
+    const body_params = req.body || null;
+    const type = req.method;
+    if(type==='GET') {
+        provider.__get(url, (err, res, body) => {
+            if(err) return rsp.json({error:err});
+            const data = JSON.parse(body);
+            rsp.json(data);
+        });
+    }else{
+        provider.__post(url, body_params, (err, res, body) =>{
+            if(err) return rsp.json({error: err});
+            const data = JSON.parse(body);
+            rsp.json(data);
+        });
+    }
 }

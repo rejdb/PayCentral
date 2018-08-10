@@ -15,6 +15,7 @@
         "cash_out_outlet": "https://coins.ph/d/api/payout-outlets/?language=en&per_page=100&region=PH&ui_view=sell_order_web&outlet_category=",
         "cash_in_categories": "https://coins.ph/d/api/payin-outlet-categories/?per_page=100&region=PH&ui_view=buy_order",
         "cash_in_featured": "https://coins.ph/d/api/payin-outlets/?featured=1&language=en&per_page=100&region=PH",
-        "cash_in_outlet": "https://coins.ph/d/api/payin-outlets/?per_page=100&region=PH&ui_view=buy_order&outlet_category="
+        "cash_in_outlet": "https://coins.ph/d/api/payin-outlets/?per_page=100&region=PH&ui_view=buy_order&outlet_category=",
+        "sell_order": "https://coins.ph/api/v2/sellorder"
     }
 }

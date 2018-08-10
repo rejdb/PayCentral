@@ -15,8 +15,8 @@ export class AuthService {
   constructor(
     private _http:Http
   ) { 
-    // this.api_endpoints = 'http://localhost:3001';
-    this.api_endpoints = '';
+    this.api_endpoints = 'http://localhost:3001';
+    // this.api_endpoints = '';
   }
 
   _post(url, data) {

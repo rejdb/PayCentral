@@ -1,39 +1,65 @@
+const request = require('request');
 const mongoose = require('mongoose');
 const Transaction = require('../models/transaction');
 const User = require('../models/user');
 
-module.exports.billspay = (req, rsp, next) => {
-    console.log(req.user);
-    const user = req.body.user;
-    const coins = req.body.coins;
+const provider = require('../helpers/provider.helper');
 
-    const nonce = new Date(parseInt(user.nonce));
-    // const nonce = new Date().getTime();
+module.exports.billspay = (req, rsp, next) => {
+    if(!req.headers.nonce) return rsp.json({success:false, message: 'Invalid Authorization'});
+    const user = req.user;
+    const coins = req.body;
+
+    // const nonce = new Date(parseInt(req.headers.nonce));
+    const nonce = new Date().getTime();
+    
+    // Prevent possible double entry and temporarily locked requested amount
     User.findOneAndUpdate(
         {$and: [{_id:user._id}, {updatedAt : { $lt: nonce}}]}, // Query Params
-        {$inc: {__v:0.01, "balance.locked": parseFloat(coins.amount)}}, // fields to be update
+        {$inc: {__v:0.01}}, // fields to be update
         {new:false}, (err, dt) => { // promised
-            if(err) return rsp.json({success: false, message: 'Syntax Error!', error: err});
-            if(!dt) return rsp.json({success: false, message: 'Nonce is too low. please generate a new one!'});
-            if(!((dt.balance.current-dt.balance.locked) > coins.amount)) return rsp.json({success: false, message: 'Insufficient Fund! Please Top-up to continue...'});;
+            if(err) return rsp.json({success: false, message: 'Syntax Error!', error: err}); // Block if theres error in the syntax
+            if(!dt) return rsp.json({success: false, message: 'Nonce is too low. please generate a new one!'}); // Response if one of the concurrent user tried to up post trans with lower timestamp balance
+            if(!((dt.balance.current-dt.balance.locked) > coins.amount)) return rsp.json({success: false, message: 'Insufficient Fund! Please Top-up to continue...'});; 
             
-            const newTrans = new Transaction({
-                _id: new mongoose.Types.ObjectId(),
-                user: dt._id,
-                amount: coins.amount,
-                fields: coins,
-                payload: coins,
-                type: 'bills_payment'
-            });
+            // Block if balance is lower than the amount to be paid.
 
-            newTrans.save((err, result) => {
-                if(err) return rsp.json({error:err});
-                Transaction.findById(result._id)
-                    .populate('user','fullname')
-                    .exec((err,data) => {
-                        if(err) return rsp.json(err);
-                        rsp.json({success: true, data: data});
+            // Connection to the provider
+            provider.__post(process.env.sell_order, coins, (err, res, body) => {
+                if(err) return rsp.json({error: err}); // Response if something went wrong
+                var body = JSON.parse(body); 
+
+                if(!body.success) {
+                    User.update({_id: dt._id},{$inc: {'balance.locked': parseFloat(coins.amount)*-1}}).exec();
+                    return rsp.json(body);
+                }else{
+                    const newTrans = new Transaction({
+                        _id: new mongoose.Types.ObjectId(),
+                        user: dt._id,
+                        amount: coins.amount*-1,
+                        fields: coins,
+                        payload: body,
+                        type: 'bills_payment'
                     });
+
+                    newTrans.save((err, result) => {
+                        if(err) return rsp.json({error:err});
+                        
+                        const coinsVal = parseFloat(coins.amount)*-1;
+                        User.update({_id:user._id}, 
+                            {$inc: {'balance.current': coinsVal, 'balance.locked': coinsVal}}, 
+                            (err, updated) => {
+                                if(err) return rsp.json({error: err});
+                                
+                                Transaction.findById(result._id)
+                                .populate('user','fullname balance')
+                                .exec((err,data) => {
+                                    if(err) return rsp.json(err);
+                                    rsp.json({success: true, data: data});
+                                });
+                        });
+                    });
+                }
             });
     });
 }

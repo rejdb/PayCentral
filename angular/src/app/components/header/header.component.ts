@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
   }
 
   onLogoutClick() {
