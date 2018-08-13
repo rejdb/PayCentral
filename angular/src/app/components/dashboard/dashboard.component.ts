@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  user: Object;
+  user: any;
 
   constructor(
     private _authService: AuthService,
@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this._authService._get('/api/users/profile').subscribe(data => {
-      this.user = data.user;
+      this.user = data['user'];
     });
   }
 

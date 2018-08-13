@@ -26,7 +26,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // View Engine
 // app.set('views', path.join(__dirname, 'public/views'));
@@ -55,7 +55,7 @@ app.use('/api/transact', sellRoutes);
 // });
 
 app.get('*', (req, rsp) => {
-    rsp.sendFile(path.join(__dirname, 'public/index.html'));
+    rsp.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 // Server Listener

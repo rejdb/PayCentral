@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./cashin.component.scss']
 })
 export class CashinComponent implements OnInit {
-  payout_features: Object;
-  payout_by_category: Object;
-  payouts: Object;
+  payout_features: any;
+  payout_by_category: any;
+  payouts: any;
 
   constructor(
     private _authService: AuthService,
@@ -20,11 +20,11 @@ export class CashinComponent implements OnInit {
   ngOnInit() {
     this._authService._get('/api/coins/cashin-featured').subscribe(featured => {
       console.log(featured);
-      this.payout_features = featured.payouts;
+      this.payout_features = featured['payouts'];
 
       this._authService._get('/api/coins/cashin').subscribe(payout => {
         console.log(payout);
-        this.payouts = payout.payouts;
+        this.payouts = payout['payouts'];
       });
     });
     
@@ -32,7 +32,7 @@ export class CashinComponent implements OnInit {
 
   payoutByCategory(catid) {
     this._authService._get('/api/coins/cashin/' + catid).subscribe(data => {
-      this.payout_by_category = data.user;
+      this.payout_by_category = data['user'];
     });
   }
 

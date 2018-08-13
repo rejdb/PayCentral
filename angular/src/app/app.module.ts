@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { FlashMessagesModule } from 'angular2-flash-messages';
@@ -23,6 +23,7 @@ import { CashinComponent } from './components/cashin/cashin.component';
 import { BuyloadComponent } from './components/buyload/buyload.component';
 import { PaybillsComponent } from './components/paybills/paybills.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 const appRoutes: Routes = [
   { path:'', component: HomeComponent },
@@ -56,12 +57,17 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
     Angular2FontawesomeModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [
+    ValidateService, 
+    AuthService, 
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

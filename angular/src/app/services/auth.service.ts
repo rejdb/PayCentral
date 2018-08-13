@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { tokenNotExpired } from 'angular2-jwt';
+// import { HttpClient } from '../../../node_modules/@types/selenium-webdriver/http';
 
 @Injectable()
 export class AuthService {
@@ -13,40 +14,41 @@ export class AuthService {
   url_profile = '/api/users/profile';
 
   constructor(
-    private _http:Http
+    private _http:HttpClient
   ) { 
-    this.api_endpoints = 'http://localhost:3001';
+    this.api_endpoints = 'http://localhost:8080';
     // this.api_endpoints = '';
   }
 
-  _post(url, data) {
-    this.loadToken();
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + this.authToken);
-    return this._http.post(this.api_endpoints + url, data, {headers: headers}).map(res => res.json());
+  _post(url, data): any {
+    // this.loadToken();
+    // let headers = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'Bearer ' + this.authToken);
+    return this._http.post(this.api_endpoints + url, data);
   }
 
-  _get(url) {
-    this.loadToken();
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + this.authToken);
-    return this._http.get(this.api_endpoints + url, {headers: headers}).map(res => res.json());
+  _get(url): any {
+    // this.loadToken();
+    // let headers = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'Bearer ' + this.authToken);
+    // console.log(this.authToken);
+    return this._http.get<any>(this.api_endpoints + url);
   }
 
   registerUser(user) {
     let url = this.api_endpoints + this.url_register;
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this._http.post(url, user, {headers: headers}).map(res => res.json());
+    // let headers = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    return this._http.post<any>(url, user);//.map(res => res.json());
   }
 
   authenticate(user) {
     let url = this.api_endpoints + this.url_login;
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this._http.post(url, user, {headers: headers}).map(res => res.json());
+    // let headers = new HttpHeaders();
+    // headers.append('Content-Type', 'application/json');
+    return this._http.post<any>(url, user);//.map(res => res.json());
   }
 
   storeUserData(token, user) {
