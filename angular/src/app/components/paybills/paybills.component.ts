@@ -31,7 +31,7 @@ export class PaybillsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._authService._get('/api/coins/bills-category').subscribe(payload => {
+    this._authService._get('/coins/bills-category').subscribe(payload => {
       this.bills_category = payload.payouts_categories;
     });
   }
@@ -42,7 +42,7 @@ export class PaybillsComponent implements OnInit {
       this.bill_payload = null;
       this.selected_outlet = null;
       this.selected_id = bill_cat_id;
-      this._authService._get('/api/coins/bills-category/' + bill_cat_id).subscribe(payload => {
+      this._authService._get('/coins/bills-category/' + bill_cat_id).subscribe(payload => {
         this.bill_payload = payload;
       });
     }
@@ -73,7 +73,7 @@ export class PaybillsComponent implements OnInit {
     let user = Object.assign(this._user, {nonce: this.nonce});
     let postData = Object.assign({user : user}, {coins: coins});
 
-    this._authService._post('/api/transact/billspay', postData).subscribe(data => {
+    this._authService._post('/transact/billspay', postData).subscribe(data => {
       console.log(data);
       if(!data.success) {
         this._flashMsg.show(data.message, { cssClass: 'alert-danger text-center'});

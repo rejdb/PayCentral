@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { tokenNotExpired } from 'angular2-jwt';
+import { environment } from '../../environments/environment';
 // import { HttpClient } from '../../../node_modules/@types/selenium-webdriver/http';
 
 @Injectable()
@@ -9,15 +10,15 @@ export class AuthService {
   api_endpoints: any;
   authToken: any;
   user: any;
-  url_register = '/api/users/register';
-  url_login = '/api/users/authenticate';
-  url_profile = '/api/users/profile';
+  url_register = '/users/register';
+  url_login = '/users/authenticate';
+  url_profile = '/users/profile';
 
   constructor(
     private _http:HttpClient
   ) { 
-    this.api_endpoints = 'http://localhost:8080';
-    // this.api_endpoints = '';
+    // this.api_endpoints = 'http://localhost:8080';
+    this.api_endpoints = environment.api;
   }
 
   _post(url, data): any {
